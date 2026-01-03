@@ -36,12 +36,8 @@ const HeroSection = () => {
               querem organizar estoque, vendas e gestão sem complicação.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
-              <Button variant="hero" size="xl">
-                Criar conta gratuita
-              </Button>
-              <Button variant="hero-outline" size="xl">
-                <MessageCircle className="w-5 h-5" />
-                Falar com especialista
+              <Button variant="hero" size="xl" asChild>
+                <a href="https://trinus.app/cadastro">Criar conta gratuita</a>
               </Button>
             </div>
           </div>

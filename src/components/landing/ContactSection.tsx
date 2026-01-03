@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { MessageCircle, Mail, Headphones } from "lucide-react";
+import { MessageCircle, Mail } from "lucide-react";
 
 const contactOptions = [
   {
@@ -7,7 +7,7 @@ const contactOptions = [
     title: "WhatsApp",
     description: "Resposta rápida",
     action: "Iniciar conversa",
-    href: "https://wa.me/5511999999999",
+    href: "https://wa.me/5527998784082",
   },
   {
     icon: Mail,
@@ -15,13 +15,6 @@ const contactOptions = [
     description: "contato@trinus.app",
     action: "Enviar e-mail",
     href: "mailto:contato@trinus.app",
-  },
-  {
-    icon: Headphones,
-    title: "Suporte Humano",
-    description: "Atendimento personalizado",
-    action: "Agendar chamada",
-    href: "#",
   },
 ];
 
@@ -38,7 +31,7 @@ const ContactSection = () => {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+        <div className="grid sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
           {contactOptions.map((option, index) => (
             <a
               key={index}

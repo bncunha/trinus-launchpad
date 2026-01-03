@@ -27,11 +27,6 @@ const faqs = [
       "Absolutamente. Utilizamos criptografia de ponta a ponta, backups automáticos diários e estamos em conformidade com a LGPD. Seus dados são armazenados em servidores seguros na nuvem.",
   },
   {
-    question: "Posso importar dados de planilhas?",
-    answer:
-      "Sim! O Trinus permite importar produtos, clientes e outras informações através de arquivos Excel ou CSV, facilitando a migração do seu negócio.",
-  },
-  {
     question: "O sistema emite nota fiscal?",
     answer:
       "O Trinus foca na gestão de estoque, vendas e controle do negócio. Para emissão de notas fiscais, recomendamos integrações com sistemas especializados.",
