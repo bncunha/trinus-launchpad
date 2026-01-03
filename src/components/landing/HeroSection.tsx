@@ -54,7 +54,7 @@ const HeroSection = () => {
                   key={index}
                   src={image.src}
                   alt={image.alt}
-                  className={`w-full h-auto rounded-2xl shadow-2xl animate-float transition-opacity duration-700 ${
+                  className={`w-full h-auto rounded-2xl shadow-2xl transition-opacity duration-700 ${
                     index === currentImage ? "opacity-100" : "opacity-0 absolute inset-0"
                   }`}
                 />
