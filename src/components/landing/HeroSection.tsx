@@ -1,8 +1,26 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircle } from "lucide-react";
-import heroDashboard from "@/assets/hero-dashboard.png";
+import { useState, useEffect } from "react";
+import trinusVendas from "@/assets/trinus-vendas.png";
+import trinusEstoque from "@/assets/trinus-estoque.png";
+import trinusEstoqueLista from "@/assets/trinus-estoque-lista.png";
+
+const images = [
+  { src: trinusVendas, alt: "Tela de Vendas do Trinus ERP" },
+  { src: trinusEstoque, alt: "Tela de Estoque do Trinus ERP" },
+  { src: trinusEstoqueLista, alt: "Lista de Estoques do Trinus ERP" },
+];
 
 const HeroSection = () => {
+  const [currentImage, setCurrentImage] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % images.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="relative pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden bg-gradient-to-b from-secondary/50 to-background">
       <div className="container mx-auto px-4">
@@ -28,14 +46,34 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Hero Image */}
+          {/* Hero Image Carousel */}
           <div className="relative animate-fade-in-right" style={{ animationDelay: "0.2s" }}>
             <div className="relative z-10">
-              <img
-                src={heroDashboard}
-                alt="Dashboard Trinus ERP"
-                className="w-full h-auto rounded-2xl shadow-2xl animate-float"
-              />
+              {images.map((image, index) => (
+                <img
+                  key={index}
+                  src={image.src}
+                  alt={image.alt}
+                  className={`w-full h-auto rounded-2xl shadow-2xl animate-float transition-opacity duration-700 ${
+                    index === currentImage ? "opacity-100" : "opacity-0 absolute inset-0"
+                  }`}
+                />
+              ))}
+            </div>
+            {/* Image indicators */}
+            <div className="flex justify-center gap-2 mt-4">
+              {images.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentImage(index)}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    index === currentImage
+                      ? "bg-primary w-6"
+                      : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                  }`}
+                  aria-label={`Ver imagem ${index + 1}`}
+                />
+              ))}
             </div>
             {/* Decorative elements */}
             <div className="absolute -top-4 -right-4 w-72 h-72 bg-primary/10 rounded-full blur-3xl" />
