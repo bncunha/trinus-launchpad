@@ -17,13 +17,13 @@ const Footer = () => {
 
           <nav className="flex flex-wrap items-center justify-center gap-6 text-sm">
             <a
-              href="/termos"
+              href="https://trinus.app/termos"
               className="text-background/70 hover:text-background transition-colors"
             >
               Termos de Uso
             </a>
             <a
-              href="/privacidade"
+              href="https://trinus.app/privacidade"
               className="text-background/70 hover:text-background transition-colors"
             >
               Política de Privacidade

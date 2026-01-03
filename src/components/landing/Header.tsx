@@ -34,11 +34,11 @@ const Header = () => {
         </nav>
 
         <div className="hidden md:flex items-center gap-3">
-          <Button variant="ghost" size="sm">
-            Entrar
+          <Button variant="ghost" size="sm" asChild>
+            <a href="https://trinus.app/login">Entrar</a>
           </Button>
-          <Button variant="accent" size="sm">
-            Criar conta gratuita
+          <Button variant="accent" size="sm" asChild>
+            <a href="https://trinus.app/cadastro">Criar conta gratuita</a>
           </Button>
         </div>
 
@@ -66,11 +66,11 @@ const Header = () => {
               </a>
             ))}
             <div className="flex flex-col gap-2 pt-4 border-t border-border">
-              <Button variant="ghost" size="sm" className="w-full">
-                Entrar
+              <Button variant="ghost" size="sm" className="w-full" asChild>
+                <a href="https://trinus.app/login">Entrar</a>
               </Button>
-              <Button variant="accent" size="sm" className="w-full">
-                Criar conta gratuita
+              <Button variant="accent" size="sm" className="w-full" asChild>
+                <a href="https://trinus.app/cadastro">Criar conta gratuita</a>
               </Button>
             </div>
           </nav>
