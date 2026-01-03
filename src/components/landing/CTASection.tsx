@@ -23,9 +23,12 @@ const CTASection = () => {
               variant="accent"
               size="xl"
               className="group shadow-xl hover:shadow-2xl"
+              asChild
             >
-              Criar conta gratuita
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <a href="https://trinus.app/cadastro">
+                Criar conta gratuita
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </a>
             </Button>
           </div>
           <p className="text-sm text-primary-foreground/70">
