@@ -7,6 +7,7 @@ import AudienceSection from "@/components/landing/AudienceSection";
 import HowItWorksSection from "@/components/landing/HowItWorksSection";
 import CTASection from "@/components/landing/CTASection";
 import SecuritySection from "@/components/landing/SecuritySection";
+import FAQSection from "@/components/landing/FAQSection";
 import ContactSection from "@/components/landing/ContactSection";
 import Footer from "@/components/landing/Footer";
 
@@ -23,6 +24,7 @@ const Index = () => {
         <HowItWorksSection />
         <CTASection />
         <SecuritySection />
+        <FAQSection />
         <ContactSection />
       </main>
       <Footer />
