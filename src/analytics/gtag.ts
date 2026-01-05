@@ -14,8 +14,8 @@ export const trackEvent = (event: AnalyticsEventParams) => {
     return;
   }
 
-  const { event_name, ...params } = event;
-  window.dataLayer.push({ event: event_name, params });
+  const { event_action, ...params } = event;
+  window.dataLayer.push({ event: event_action, params });
 };
 
 declare global {
