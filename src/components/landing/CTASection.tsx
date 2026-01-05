@@ -26,13 +26,13 @@ const CTASection = () => {
               asChild
             >
               <a href="https://erp.trinus.app/cadastro">
-                Criar conta gratuita
+                Teste Grátis por 15 Dias
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
           </div>
           <p className="text-sm text-primary-foreground/70">
-            Sem cartão de crédito • Cancele quando quiser
+            Sem cartão de crédito • Cancele quando quiser • Escolha seu plano pago somente após o período de testes
           </p>
         </div>
       </div>

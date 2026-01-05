@@ -33,7 +33,7 @@ const HeroSection = () => {
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0">
               O Trinus é um ERP simples e completo para pequenas empresas que
-              querem organizar estoque, vendas e gestão sem complicação.
+              querem organizar estoque, vendas e gestão sem complicação. <strong> Experimente por 15 dias, sem compromisso. </strong>
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
               <Button variant="hero" size="xl" asChild>

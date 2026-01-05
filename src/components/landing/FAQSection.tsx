@@ -12,6 +12,11 @@ const faqs = [
       "Sim! Oferecemos um período de teste gratuito para você conhecer todas as funcionalidades do sistema. Após o período de teste, você pode escolher o plano que melhor se adequa ao seu negócio.",
   },
   {
+    question: "O que acontece após o período de teste?",
+    answer:
+      "Você poderá usar o Trinus gratuitamente por 15 dias. Depois, escolherá um dos nossos planos pagos para continuar com acesso ao sistema. Não precisa de cartão de crédito para começar.",
+  },
+  {
     question: "Preciso instalar algum software?",
     answer:
       "Não. O Trinus é 100% em nuvem, então você acessa pelo navegador de qualquer dispositivo, seja computador, tablet ou celular. Não precisa instalar nada.",
