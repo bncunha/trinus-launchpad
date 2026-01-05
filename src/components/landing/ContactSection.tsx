@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Mail } from "lucide-react";
+import { trackEvent } from "@/analytics/gtag";
 
 const contactOptions = [
   {
@@ -38,6 +39,15 @@ const ContactSection = () => {
               href={option.href}
               className="group p-6 bg-card rounded-xl border border-border text-center hover:shadow-lg hover:border-accent/30 transition-all duration-300 animate-scale-in"
               style={{ animationDelay: `${index * 0.1}s` }}
+              onClick={() =>
+                trackEvent({
+                  event_name: "contact_click",
+                  event_category: "contact",
+                  event_action: "click",
+                  event_label: option.title,
+                  event_destination: option.href,
+                })
+              }
             >
               <div className="w-14 h-14 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-accent/20 transition-colors">
                 <option.icon className="w-7 h-7 text-accent" />

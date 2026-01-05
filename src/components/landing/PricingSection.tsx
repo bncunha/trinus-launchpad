@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Check, Sparkles } from "lucide-react";
+import { trackEvent } from "@/analytics/gtag";
 
 const benefits = [
   "Gestão completa de estoque",
@@ -67,7 +68,18 @@ const PricingSection = () => {
 
               <div className="mt-10 flex flex-col items-center gap-3 text-center">
                 <Button variant="accent" size="xl" asChild>
-                  <a href="https://erp.trinus.app/cadastro">
+                  <a
+                    href="https://erp.trinus.app/cadastro"
+                    onClick={() =>
+                      trackEvent({
+                        event_name: "cta_click",
+                        event_category: "pricing",
+                        event_action: "click",
+                        event_label: "Testar gratis por 15 dias",
+                        event_destination: "https://erp.trinus.app/cadastro",
+                      })
+                    }
+                  >
                     Testar grátis por 15 dias
                   </a>
                 </Button>

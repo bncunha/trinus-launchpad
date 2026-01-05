@@ -1,4 +1,5 @@
 import trinusLogo from "@/assets/trinus-logo.png";
+import { trackEvent } from "@/analytics/gtag";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -19,12 +20,30 @@ const Footer = () => {
             <a
               href="https://erp.trinus.app/termos"
               className="text-background/70 hover:text-background transition-colors"
+              onClick={() =>
+                trackEvent({
+                  event_name: "footer_link_click",
+                  event_category: "footer",
+                  event_action: "click",
+                  event_label: "Termos de Uso",
+                  event_destination: "https://erp.trinus.app/termos",
+                })
+              }
             >
               Termos de Uso
             </a>
             <a
               href="https://erp.trinus.app/privacidade"
               className="text-background/70 hover:text-background transition-colors"
+              onClick={() =>
+                trackEvent({
+                  event_name: "footer_link_click",
+                  event_category: "footer",
+                  event_action: "click",
+                  event_label: "Politica de Privacidade",
+                  event_destination: "https://erp.trinus.app/privacidade",
+                })
+              }
             >
               Política de Privacidade
             </a>

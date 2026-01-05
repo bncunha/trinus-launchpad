@@ -2,9 +2,22 @@ import { Button } from "@/components/ui/button";
 import trinusLogo from "@/assets/trinus-logo.png";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { trackEvent } from "@/analytics/gtag";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleMenuToggle = () => {
+    const nextOpen = !isMenuOpen;
+    trackEvent({
+      event_name: "mobile_menu_toggle",
+      event_category: "header",
+      event_action: "click",
+      event_label: nextOpen ? "open" : "close",
+      event_location: "mobile",
+    });
+    setIsMenuOpen(nextOpen);
+  };
 
   const navLinks = [
     { label: "Funcionalidades", href: "#funcionalidades" },
@@ -17,7 +30,19 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
-        <a href="/" className="flex items-center gap-2">
+        <a
+          href="/"
+          className="flex items-center gap-2"
+          onClick={() =>
+            trackEvent({
+              event_name: "nav_link_click",
+              event_category: "header",
+              event_action: "click",
+              event_label: "logo",
+              event_destination: "/",
+            })
+          }
+        >
           <img src={trinusLogo} alt="Trinus ERP" className="h-10 w-auto" />
         </a>
 
@@ -28,6 +53,16 @@ const Header = () => {
               key={link.href}
               href={link.href}
               className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+              onClick={() =>
+                trackEvent({
+                  event_name: "nav_link_click",
+                  event_category: "header",
+                  event_action: "click",
+                  event_label: link.label,
+                  event_destination: link.href,
+                  event_location: "desktop",
+                })
+              }
             >
               {link.label}
             </a>
@@ -36,18 +71,43 @@ const Header = () => {
 
         <div className="hidden md:flex items-center gap-3">
           <Button variant="ghost" size="sm" asChild>
-            <a href="https://erp.trinus.app/login">Entrar</a>
+            <a
+              href="https://erp.trinus.app/login"
+              onClick={() =>
+                trackEvent({
+                  event_name: "cta_click",
+                  event_category: "header",
+                  event_action: "click",
+                  event_label: "Entrar",
+                  event_destination: "https://erp.trinus.app/login",
+                  event_location: "desktop",
+                })
+              }
+            >
+              Entrar
+            </a>
           </Button>
           <Button variant="accent" size="sm" asChild>
-            <a href="https://erp.trinus.app/cadastro">Criar conta gratuita</a>
+            <a
+              href="https://erp.trinus.app/cadastro"
+              onClick={() =>
+                trackEvent({
+                  event_name: "cta_click",
+                  event_category: "header",
+                  event_action: "click",
+                  event_label: "Criar conta gratuita",
+                  event_destination: "https://erp.trinus.app/cadastro",
+                  event_location: "desktop",
+                })
+              }
+            >
+              Criar conta gratuita
+            </a>
           </Button>
         </div>
 
         {/* Mobile Menu Button */}
-        <button
-          className="md:hidden p-2 text-foreground"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
+        <button className="md:hidden p-2 text-foreground" onClick={handleMenuToggle}>
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
@@ -61,17 +121,55 @@ const Header = () => {
                 key={link.href}
                 href={link.href}
                 className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors py-2"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={() => {
+                  trackEvent({
+                    event_name: "nav_link_click",
+                    event_category: "header",
+                    event_action: "click",
+                    event_label: link.label,
+                    event_destination: link.href,
+                    event_location: "mobile",
+                  });
+                  setIsMenuOpen(false);
+                }}
               >
                 {link.label}
               </a>
             ))}
             <div className="flex flex-col gap-2 pt-4 border-t border-border">
               <Button variant="ghost" size="sm" className="w-full" asChild>
-                <a href="https://erp.trinus.app/login">Entrar</a>
+                <a
+                  href="https://erp.trinus.app/login"
+                  onClick={() =>
+                    trackEvent({
+                      event_name: "cta_click",
+                      event_category: "header",
+                      event_action: "click",
+                      event_label: "Entrar",
+                      event_destination: "https://erp.trinus.app/login",
+                      event_location: "mobile",
+                    })
+                  }
+                >
+                  Entrar
+                </a>
               </Button>
               <Button variant="accent" size="sm" className="w-full" asChild>
-                <a href="https://erp.trinus.app/cadastro">Criar conta gratuita</a>
+                <a
+                  href="https://erp.trinus.app/cadastro"
+                  onClick={() =>
+                    trackEvent({
+                      event_name: "cta_click",
+                      event_category: "header",
+                      event_action: "click",
+                      event_label: "Criar conta gratuita",
+                      event_destination: "https://erp.trinus.app/cadastro",
+                      event_location: "mobile",
+                    })
+                  }
+                >
+                  Criar conta gratuita
+                </a>
               </Button>
             </div>
           </nav>

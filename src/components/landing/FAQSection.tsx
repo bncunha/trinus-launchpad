@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { trackEvent } from "@/analytics/gtag";
 
 const faqs = [
   {
@@ -69,7 +70,17 @@ const FAQSection = () => {
                 value={`item-${index}`}
                 className="bg-background rounded-lg border border-border px-6"
               >
-                <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary">
+                <AccordionTrigger
+                  className="text-left font-semibold text-foreground hover:text-primary"
+                  onClick={() =>
+                    trackEvent({
+                      event_name: "faq_toggle",
+                      event_category: "faq",
+                      event_action: "click",
+                      event_label: faq.question,
+                    })
+                  }
+                >
                   {faq.question}
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">

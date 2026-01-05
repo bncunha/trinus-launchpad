@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { trackEvent } from "@/analytics/gtag";
 
 const CTASection = () => {
   return (
@@ -25,7 +26,18 @@ const CTASection = () => {
               className="group shadow-xl hover:shadow-2xl"
               asChild
             >
-              <a href="https://erp.trinus.app/cadastro">
+              <a
+                href="https://erp.trinus.app/cadastro"
+                onClick={() =>
+                  trackEvent({
+                    event_name: "cta_click",
+                    event_category: "cta",
+                    event_action: "click",
+                    event_label: "Teste Gratis por 15 Dias",
+                    event_destination: "https://erp.trinus.app/cadastro",
+                  })
+                }
+              >
                 Teste Grátis por 15 Dias
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>

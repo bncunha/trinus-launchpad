@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import trinusVendas from "@/assets/trinus-vendas.png";
 import trinusEstoque from "@/assets/trinus-estoque.png";
 import trinusEstoqueLista from "@/assets/trinus-estoque-lista.png";
+import { trackEvent } from "@/analytics/gtag";
 
 const images = [
   { src: trinusVendas, alt: "Tela de Vendas do Trinus ERP" },
@@ -37,7 +38,20 @@ const HeroSection = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
               <Button variant="hero" size="xl" asChild>
-                <a href="https://erp.trinus.app/cadastro">Criar conta gratuita</a>
+                <a
+                  href="https://erp.trinus.app/cadastro"
+                  onClick={() =>
+                    trackEvent({
+                      event_name: "cta_click",
+                      event_category: "hero",
+                      event_action: "click",
+                      event_label: "Criar conta gratuita",
+                      event_destination: "https://erp.trinus.app/cadastro",
+                    })
+                  }
+                >
+                  Criar conta gratuita
+                </a>
               </Button>
             </div>
           </div>
@@ -61,7 +75,15 @@ const HeroSection = () => {
               {images.map((_, index) => (
                 <button
                   key={index}
-                  onClick={() => setCurrentImage(index)}
+                  onClick={() => {
+                    setCurrentImage(index);
+                    trackEvent({
+                      event_name: "hero_carousel_click",
+                      event_category: "hero",
+                      event_action: "click",
+                      event_label: `image_${index + 1}`,
+                    });
+                  }}
                   className={`w-2 h-2 rounded-full transition-all duration-300 ${
                     index === currentImage
                       ? "bg-primary w-6"
