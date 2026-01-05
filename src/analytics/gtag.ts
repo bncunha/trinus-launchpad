@@ -10,7 +10,7 @@ export type AnalyticsEventParams = {
 };
 
 export const trackEvent = (event: AnalyticsEventParams) => {
-  if (typeof window === "undefined" || typeof window.dataLayer !== "function") {
+  if (typeof window === "undefined" || typeof window.dataLayer?.push !== "function") {
     return;
   }
 
