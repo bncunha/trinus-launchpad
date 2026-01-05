@@ -10,16 +10,16 @@ export type AnalyticsEventParams = {
 };
 
 export const trackEvent = (event: AnalyticsEventParams) => {
-  if (typeof window === "undefined" || typeof window.gtag !== "function") {
+  if (typeof window === "undefined" || typeof window.dataLayer !== "function") {
     return;
   }
 
   const { event_name, ...params } = event;
-  window.gtag("event", event_name, params);
+  window.dataLayer.push({ event: event_name, params });
 };
 
 declare global {
   interface Window {
-    gtag?: (...args: unknown[]) => void;
+    dataLayer?;
   }
 }
