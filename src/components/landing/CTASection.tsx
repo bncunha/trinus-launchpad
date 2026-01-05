@@ -25,7 +25,7 @@ const CTASection = () => {
               className="group shadow-xl hover:shadow-2xl"
               asChild
             >
-              <a href="https://trinus.app/cadastro">
+              <a href="https://erp.trinus.app/cadastro">
                 Criar conta gratuita
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>

@@ -35,10 +35,10 @@ const Header = () => {
 
         <div className="hidden md:flex items-center gap-3">
           <Button variant="ghost" size="sm" asChild>
-            <a href="https://trinus.app/login">Entrar</a>
+            <a href="https://erp.trinus.app/login">Entrar</a>
           </Button>
           <Button variant="accent" size="sm" asChild>
-            <a href="https://trinus.app/cadastro">Criar conta gratuita</a>
+            <a href="https://erp.trinus.app/cadastro">Criar conta gratuita</a>
           </Button>
         </div>
 
@@ -67,10 +67,10 @@ const Header = () => {
             ))}
             <div className="flex flex-col gap-2 pt-4 border-t border-border">
               <Button variant="ghost" size="sm" className="w-full" asChild>
-                <a href="https://trinus.app/login">Entrar</a>
+                <a href="https://erp.trinus.app/login">Entrar</a>
               </Button>
               <Button variant="accent" size="sm" className="w-full" asChild>
-                <a href="https://trinus.app/cadastro">Criar conta gratuita</a>
+                <a href="https://erp.trinus.app/cadastro">Criar conta gratuita</a>
               </Button>
             </div>
           </nav>
