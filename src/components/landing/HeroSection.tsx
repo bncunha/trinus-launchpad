@@ -4,9 +4,11 @@ import { useState, useEffect } from "react";
 import trinusVendas from "@/assets/trinus-vendas.png";
 import trinusEstoque from "@/assets/trinus-estoque.png";
 import trinusEstoqueLista from "@/assets/trinus-estoque-lista.png";
+import trinusDashboard from "@/assets/trinus-dashboard.png";
 import { trackEvent } from "@/analytics/gtag";
 
 const images = [
+  { src: trinusDashboard, alt: "Tela Dashboard do Trinus ERP" },
   { src: trinusVendas, alt: "Tela de Vendas do Trinus ERP" },
   { src: trinusEstoque, alt: "Tela de Estoque do Trinus ERP" },
   { src: trinusEstoqueLista, alt: "Lista de Estoques do Trinus ERP" },
