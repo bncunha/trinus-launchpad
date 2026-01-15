@@ -13,9 +13,9 @@ const contactOptions = [
   {
     icon: Mail,
     title: "E-mail",
-    description: "contato@trinus.app",
+    description: "admin@trinus.app",
     action: "Enviar e-mail",
-    href: "mailto:contato@trinus.app",
+    href: "mailto:admin@trinus.app",
   },
 ];
 
