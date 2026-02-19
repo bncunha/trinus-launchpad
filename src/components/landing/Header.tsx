@@ -106,10 +106,47 @@ const Header = () => {
           </Button>
         </div>
 
-        {/* Mobile Menu Button */}
-        <button className="md:hidden p-2 text-foreground" onClick={handleMenuToggle}>
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="md:hidden flex items-center gap-2">
+          <Button variant="ghost" size="sm" asChild>
+            <a
+              href="https://erp.trinus.app/login"
+              onClick={() =>
+                trackEvent({
+                  event_name: "cta_click",
+                  event_category: "header",
+                  event_action: "click",
+                  event_label: "Entrar",
+                  event_destination: "https://erp.trinus.app/login",
+                  event_location: "mobile",
+                })
+              }
+            >
+              Entrar
+            </a>
+          </Button>
+          <Button variant="accent" size="sm" asChild>
+            <a
+              href="https://erp.trinus.app/cadastro"
+              onClick={() =>
+                trackEvent({
+                  event_name: "cta_click",
+                  event_category: "header",
+                  event_action: "click",
+                  event_label: "Criar conta gratuita",
+                  event_destination: "https://erp.trinus.app/cadastro",
+                  event_location: "mobile",
+                })
+              }
+            >
+              Criar conta
+            </a>
+          </Button>
+
+          {/* Mobile Menu Button */}
+          <button className="p-2 text-foreground" onClick={handleMenuToggle}>
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
@@ -136,42 +173,6 @@ const Header = () => {
                 {link.label}
               </a>
             ))}
-            <div className="flex flex-col gap-2 pt-4 border-t border-border">
-              <Button variant="ghost" size="sm" className="w-full" asChild>
-                <a
-                  href="https://erp.trinus.app/login"
-                  onClick={() =>
-                    trackEvent({
-                      event_name: "cta_click",
-                      event_category: "header",
-                      event_action: "click",
-                      event_label: "Entrar",
-                      event_destination: "https://erp.trinus.app/login",
-                      event_location: "mobile",
-                    })
-                  }
-                >
-                  Entrar
-                </a>
-              </Button>
-              <Button variant="accent" size="sm" className="w-full" asChild>
-                <a
-                  href="https://erp.trinus.app/cadastro"
-                  onClick={() =>
-                    trackEvent({
-                      event_name: "cta_click",
-                      event_category: "header",
-                      event_action: "click",
-                      event_label: "Criar conta gratuita",
-                      event_destination: "https://erp.trinus.app/cadastro",
-                      event_location: "mobile",
-                    })
-                  }
-                >
-                  Criar conta gratuita
-                </a>
-              </Button>
-            </div>
           </nav>
         </div>
       )}
