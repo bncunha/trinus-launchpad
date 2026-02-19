@@ -8,7 +8,7 @@ const contactOptions = [
     title: "WhatsApp",
     description: "Resposta rápida",
     action: "Iniciar conversa",
-    href: "https://wa.me/5527998784082",
+    href: "https://wa.me/5527988573509?text=Ol%C3%A1!%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20Trinus",
   },
   {
     icon: Mail,
@@ -27,9 +27,7 @@ const ContactSection = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Precisa de ajuda? <span className="text-accent">Estamos aqui.</span>
           </h2>
-          <p className="text-lg text-muted-foreground">
-            Nossa equipe está pronta para te atender.
-          </p>
+          <p className="text-lg text-muted-foreground">Nossa equipe está pronta para te atender.</p>
         </div>
 
         <div className="grid sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
@@ -47,22 +45,16 @@ const ContactSection = () => {
                   event_label: option.title,
                   event_destination: option.href,
                 })
-              }
-            >
+              }>
               <div className="w-14 h-14 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-accent/20 transition-colors">
                 <option.icon className="w-7 h-7 text-accent" />
               </div>
-              <h3 className="text-lg font-semibold text-foreground mb-1">
-                {option.title}
-              </h3>
-              <p className="text-sm text-muted-foreground mb-4">
-                {option.description}
-              </p>
+              <h3 className="text-lg font-semibold text-foreground mb-1">{option.title}</h3>
+              <p className="text-sm text-muted-foreground mb-4">{option.description}</p>
               <Button
                 variant="outline"
                 size="sm"
-                className="group-hover:border-accent group-hover:text-accent transition-colors"
-              >
+                className="group-hover:border-accent group-hover:text-accent transition-colors">
                 {option.action}
               </Button>
             </a>
